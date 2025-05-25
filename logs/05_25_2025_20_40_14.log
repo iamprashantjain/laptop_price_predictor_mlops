@@ -1,0 +1,4 @@
+[2025-05-25 20:40:14,497] 13 root - INFO - ✅ Loaded processed test data
+[2025-05-25 20:40:14,715] 20 root - INFO - ✅ Loaded trained model
+[2025-05-25 20:40:14,762] 31 root - INFO - ✅ R2 Score: 0.8661, MAE: 0.1600
+[2025-05-25 20:40:14,809] 38 root - INFO - ✅ Evaluation metrics saved to metrics/evaluation.yaml

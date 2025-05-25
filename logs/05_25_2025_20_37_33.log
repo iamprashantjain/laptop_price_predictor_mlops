@@ -1,0 +1,6 @@
+[2025-05-25 20:37:33,968] 12 root - INFO - ✅ Loaded processed test data
+[2025-05-25 20:37:33,968] 33 root - ERROR - ❌ Exception occurred during model evaluation
+Traceback (most recent call last):
+  File "src/model_evaluation.py", line 18, in <module>
+    pipe = pickle.load(open("models/pipe.pkl", "rb"))
+FileNotFoundError: [Errno 2] No such file or directory: 'models/pipe.pkl'
