@@ -1,0 +1,3 @@
+[2025-05-26 01:14:20,061] 23 root - INFO - ✅ Loaded processed train and test data
+[2025-05-26 01:14:22,684] 51 root - INFO - ✅ Model training completed
+[2025-05-26 01:14:22,762] 56 root - INFO - ✅ Model saved to models/model.pkl
