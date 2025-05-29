@@ -1,0 +1,10 @@
+[2025-05-30 00:19:20,626] 1038 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[2025-05-30 00:19:20,654] 107 dagshub - INFO - Accessing as iamprashantjain
+[2025-05-30 00:19:21,153] 1038 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/iamprashantjain/laptop_price_predictor_mlops "HTTP/1.1 200 OK"
+[2025-05-30 00:19:21,604] 1038 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[2025-05-30 00:19:21,622] 107 dagshub - INFO - Initialized MLflow to track repo "iamprashantjain/laptop_price_predictor_mlops"
+[2025-05-30 00:19:21,624] 107 dagshub - INFO - Repository iamprashantjain/laptop_price_predictor_mlops initialized!
+[2025-05-30 00:19:22,598] 22 root - INFO - ✅ Loaded processed test data
+[2025-05-30 00:19:23,923] 29 root - INFO - ✅ Loaded trained model
+[2025-05-30 00:19:26,180] 42 root - INFO - ✅ R2 Score: 0.8076, MAE: 10655.0173
+[2025-05-30 00:20:31,178] 56 root - INFO - ✅ Evaluation metrics saved and model logged to MLflow

@@ -36,3 +36,11 @@ stages:
       - models/model.pkl
     outs:
       - metrics/evaluation.yaml
+
+
+  register_model:
+    cmd: py src/register_model.py
+    deps:
+      - models/model.pkl
+      - metrics/evaluation.yaml
+      - src/register_model.py
