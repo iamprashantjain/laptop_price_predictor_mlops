@@ -13,7 +13,7 @@ try:
     logging.info("✅ Loaded processed test data")
 
     X_test = df_test.drop(columns=["Price"])
-    y_test = np.log(df_test["Price"])
+    y_test = df_test["Price"]  # No log transformation
 
     # Load the trained pipeline
     pipe = pickle.load(open("models/model.pkl", "rb"))

@@ -1,0 +1,4 @@
+[2025-05-29 23:49:26,282] 13 root - INFO - reading data from source
+[2025-05-29 23:49:26,309] 16 root - INFO - dropping un-necessary col
+[2025-05-29 23:49:26,372] 19 root - INFO - splitting train test
+[2025-05-29 23:49:26,826] 28 root - INFO - Saved train and test data to 'data/raw/'
