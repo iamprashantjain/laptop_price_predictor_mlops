@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Laptop Price Predictor</title>
+</head>
+<body>
+    <h2>Laptop Price Predictor</h2>
+    <form method="post">
+        Company: <input type="text" name="Company" required><br><br>
+        TypeName: <input type="text" name="TypeName" required><br><br>
+        RAM (GB): <input type="number" name="Ram" required><br><br>
+        Weight (kg): <input type="number" step="any" name="Weight" required><br><br>
+        Touchscreen: <input type="checkbox" name="Touchscreen" value="1"><br><br>
+        IPS Display: <input type="checkbox" name="Ips" value="1"><br><br>
+        PPI: <input type="number" step="any" name="ppi" required><br><br>
+        CPU Brand: <input type="text" name="CpuBrand" required><br><br>
+        HDD (GB): <input type="number" name="HDD" required><br><br>
+        SSD (GB): <input type="number" name="SSD" required><br><br>
+        GPU Brand: <input type="text" name="GpuBrand" required><br><br>
+        Operating System: <input type="text" name="os" required><br><br>
+
+        <input type="submit" value="Predict Price">
+    </form>
+
+    {% if prediction %}
+        <h3>Prediction: {{ prediction }}</h3>
+    {% endif %}
+</body>
+</html>
