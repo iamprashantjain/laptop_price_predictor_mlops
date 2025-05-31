@@ -39,7 +39,7 @@ stages:
 
 
   register_model:
-    cmd: py src/register_model.py
+    cmd: python src/register_model.py
     deps:
       - models/model.pkl
       - metrics/evaluation.yaml
