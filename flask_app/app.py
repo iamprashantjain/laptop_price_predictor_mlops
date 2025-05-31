@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, render_template
 import numpy as np
 import pandas as pd
@@ -9,7 +10,21 @@ from sklearn.pipeline import Pipeline
 app = Flask(__name__)
 
 # ------------------ MLflow Setup ------------------
-mlflow.set_tracking_uri("https://dagshub.com/iamprashantjain/laptop_price_predictor_mlops.mlflow")
+dagshub_token = os.getenv("DAGSHUB_PAT")
+if not dagshub_token:
+    raise EnvironmentError("DAGSHUB_PAT environment variable not set.")
+
+# Set MLflow authentication environment variables
+os.environ["MLFLOW_TRACKING_USERNAME"] = dagshub_token
+os.environ["MLFLOW_TRACKING_PASSWORD"] = dagshub_token
+
+# Configure MLflow to use DagsHub as tracking URI
+dagshub_url = "https://dagshub.com"
+repo_owner = "iamprashantjain"
+repo_name = "laptop_price_predictor_mlops"
+
+mlflow.set_tracking_uri(f"{dagshub_url}/{repo_owner}/{repo_name}.mlflow")
+
 
 # Load model from MLflow Model Registry
 model_name = "laptop_price_predictor"
@@ -44,7 +59,7 @@ def index():
             return render_template("index.html", prediction=f"₹ {prediction:,.2f}")
 
         except Exception as e:
-            return render_template("index.html", prediction=f"❌ Error: {str(e)}")
+            return render_template("index.html", prediction=f"Error: {str(e)}")
 
     return render_template("index.html", prediction=None)
 
