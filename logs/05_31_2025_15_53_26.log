@@ -1,0 +1,3 @@
+[2025-05-31 15:53:26,754] 25 root - INFO - ✅ Loaded processed train and test data
+[2025-05-31 15:53:28,865] 57 root - INFO - ✅ Model training completed using RandomForestRegressor
+[2025-05-31 15:53:28,978] 63 root - INFO - ✅ Model saved to models/model.pkl

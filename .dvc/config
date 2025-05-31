@@ -1,4 +1,6 @@
 [core]
-    remote = myremote
+    remote = myremoteaws
 ['remote "myremote"']
     url = C:\Users\iampr\AppData\Local\Temp
+['remote "myremoteaws"']
+    url = s3://prashant-mlops-bucket
