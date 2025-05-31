@@ -12,8 +12,29 @@ import mlflow.sklearn
 import dagshub
 
 # Initialize Dagshub tracking
-dagshub.init(repo_owner='iamprashantjain', repo_name='laptop_price_predictor_mlops', mlflow=True)
-mlflow.set_tracking_uri("https://dagshub.com/iamprashantjain/laptop_price_predictor_mlops.mlflow")
+# dagshub.init(repo_owner='iamprashantjain', repo_name='laptop_price_predictor_mlops', mlflow=True)
+# mlflow.set_tracking_uri("https://dagshub.com/iamprashantjain/laptop_price_predictor_mlops.mlflow")
+
+
+# Fetch DAGSHUB_PAT from environment
+dagshub_token = os.getenv("DAGSHUB_PAT")
+
+# Error if not set
+if not dagshub_token:
+    raise EnvironmentError("DAGSHUB_PAT environment variable not set")
+
+# Set MLflow credentials for DagsHub
+os.environ["MLFLOW_TRACKING_USERNAME"] = dagshub_token
+os.environ["MLFLOW_TRACKING_PASSWORD"] = dagshub_token
+
+# Set MLflow tracking URI for DagsHub
+dagshub_url = "https://dagshub.com"
+repo_owner = "iamprashantjain"
+repo_name = "laptop_price_predictor_mlops"
+
+mlflow.set_tracking_uri(f"{dagshub_url}/{repo_owner}/{repo_name}.mlflow")
+
+
 mlflow.set_experiment("dvc-pipeline")
 
 try:
