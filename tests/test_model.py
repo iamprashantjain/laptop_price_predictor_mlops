@@ -9,7 +9,7 @@ class TestModelLoading(unittest.TestCase):
         # Get DagsHub token from environment
         dagshub_token = os.getenv("DAGSHUB_PAT")
         if not dagshub_token:
-            raise EnvironmentError("❌ DAGSHUB_PAT environment variable not set.")
+            raise EnvironmentError("DAGSHUB_PAT environment variable not set.")
 
         # Set MLflow authentication environment variables
         os.environ["MLFLOW_TRACKING_USERNAME"] = dagshub_token
@@ -23,18 +23,18 @@ class TestModelLoading(unittest.TestCase):
         mlflow.set_tracking_uri(f"{dagshub_url}/{repo_owner}/{repo_name}.mlflow")
 
         # Set model name and fetch latest model version
-        cls.model_name = "my_model"
+        cls.model_name = "laptop_price_predictor"
         cls.model_version = cls.get_latest_model_version(cls.model_name, stage="Staging")
 
         if cls.model_version is None:
-            raise ValueError(f"❌ No model found in 'Staging' stage for model '{cls.model_name}'")
+            raise ValueError(f"No model found in 'Staging' stage for model '{cls.model_name}'")
 
         cls.model_uri = f"models:/{cls.model_name}/{cls.model_version}"
 
         try:
             cls.model = mlflow.pyfunc.load_model(cls.model_uri)
         except Exception as e:
-            raise RuntimeError(f"❌ Failed to load model from URI {cls.model_uri}: {str(e)}")
+            raise RuntimeError(f"Failed to load model from URI {cls.model_uri}: {str(e)}")
 
     @staticmethod
     def get_latest_model_version(model_name, stage="Staging"):
@@ -45,7 +45,7 @@ class TestModelLoading(unittest.TestCase):
 
     def test_model_loaded_properly(self):
         """Test that the MLflow model is not None after loading."""
-        self.assertIsNotNone(self.model, "❌ Model failed to load, model is None.")
+        self.assertIsNotNone(self.model, "Model failed to load, model is None.")
 
 
 if __name__ == "__main__":
