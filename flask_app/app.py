@@ -10,7 +10,8 @@ from sklearn.pipeline import Pipeline
 app = Flask(__name__)
 
 # ------------------ MLflow Setup ------------------
-dagshub_token = os.getenv("DAGSHUB_PAT")
+# dagshub_token = os.getenv("DAGSHUB_PAT")
+dagshub_token = "03c6c3343add04c7d3a1d909f079cb8b4a3fe33e"
 if not dagshub_token:
     raise EnvironmentError("DAGSHUB_PAT environment variable not set.")
 
@@ -64,4 +65,4 @@ def index():
     return render_template("index.html", prediction=None)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0")

@@ -84,3 +84,23 @@ jobs:
           DAGSHUB_PAT: ${{ secrets.DAGSHUB_PAT }}
         run: |
           python -m unittest tests/test_flask_app.py
+
+
+      - name: login to dockerhub
+        if: success()
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_ACCESSTOKEN }}
+
+
+      - name: build docker image
+        if: success()
+        run: |
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/laptop_price_predictor:latest .
+
+
+      - name: push to dockerhub
+        if: success()
+        run: |
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/laptop_price_predictor:latest .
