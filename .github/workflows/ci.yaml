@@ -103,4 +103,4 @@ jobs:
       - name: push to dockerhub
         if: success()
         run: |
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/laptop_price_predictor:latest .
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/laptop_price_predictor:latest
