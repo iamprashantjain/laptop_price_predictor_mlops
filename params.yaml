@@ -2,7 +2,7 @@ data_ingestion:
   test_size: 0.2
 
 model_trainer:
-  n_estimators: 76
+  n_estimators: 50
   max_depth: 15
   min_samples_split: 5
   min_samples_leaf: 1
