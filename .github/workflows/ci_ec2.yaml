@@ -1,6 +1,6 @@
 name: CI/CD pipeline
 
-# on: push
+on: push
 
 jobs:
   project-testing:
